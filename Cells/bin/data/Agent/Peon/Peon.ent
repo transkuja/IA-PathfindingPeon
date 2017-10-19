@@ -1,13 +1,13 @@
 { 	"components":[
 		{
 			"type":"SpriteRenderer",
-			"name":"Peon/Peon1.sr",
+			"name":"Peon/Peon.sr",
 			"sprite":"peon",
 			"image":"..\/Image\/peon.png"
 		},
 		{
 			"type":"Agent",
-			"name":"Peon/Peon1.chr"
+			"name":"Peon/Peon.chr"
 		}		
 	]
 } 

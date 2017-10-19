@@ -166,6 +166,19 @@ namespace crea
 					Sprite* pSprite = new Sprite();
 					pSprite->setTexture(pTexture);
 					pSpriteRenderer->setSprite(pSprite);
+
+					if (!root["tilesets"][i]["tileproperties"].isNull())
+					{
+						Json::Value agentProperty = root["tilesets"][i]["tileproperties"]["0"];
+						if (!agentProperty["Entity"].isNull())
+						{
+							pEntity->loadFromFileJSON(DATAAGENTPATH + agentProperty["Entity"].asString());
+							cout << "Dexterity:" << pEntity->getComponent<Agent>()->getDexterity() << endl;
+							cout << "Health:" << pEntity->getComponent<Agent>()->getHealth() << endl;
+							cout << "Intelligence:" << pEntity->getComponent<Agent>()->getIntelligence() << endl;
+							cout << "Strength:" << pEntity->getComponent<Agent>()->getStrength() << endl;
+						}
+					}
 				}
 			}
 
