@@ -10,8 +10,56 @@
          "width":28,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "height":28,
+         "name":"Entities",
+         "objects":[
+                {
+                 "gid":226,
+                 "height":96,
+                 "id":7,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":96,
+                 "x":15,
+                 "y":164
+                }, 
+                {
+                 "gid":227,
+                 "height":128,
+                 "id":8,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":281,
+                 "y":629
+                }, 
+                {
+                 "gid":228,
+                 "height":72,
+                 "id":9,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":72,
+                 "x":441,
+                 "y":610
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":28,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":7,
+ "nextobjectid":10,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":32,
@@ -208,6 +256,45 @@
                 }
             },
          "tilewidth":32
+        }, 
+        {
+         "columns":1,
+         "firstgid":226,
+         "image":"..\/Image\/mine.png",
+         "imageheight":96,
+         "imagewidth":96,
+         "margin":0,
+         "name":"mine",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":96,
+         "tilewidth":96
+        }, 
+        {
+         "columns":1,
+         "firstgid":227,
+         "image":"..\/Image\/hq.png",
+         "imageheight":128,
+         "imagewidth":128,
+         "margin":0,
+         "name":"hq",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":128,
+         "tilewidth":128
+        }, 
+        {
+         "columns":1,
+         "firstgid":228,
+         "image":"..\/Image\/peon.png",
+         "imageheight":72,
+         "imagewidth":72,
+         "margin":0,
+         "name":"peon",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":72,
+         "tilewidth":72
         }],
  "tilewidth":32,
  "version":1,

@@ -131,17 +131,43 @@ namespace crea
 					}
 				}
 			}
+			if (type == "objectgroup")
+			{
+				// TD Agents
+				// A compléter
+				for (int i = 1; i < root["tilesets"].size(); i++)
+				{
+					// look in tilesets between 2 3 4
+					// get name and sprite + gid
+					// retrieve position in objects with gid
 
-			// TD Agents
-			// A compléter
+					int entityGid = root["tilesets"][i]["firstgid"].asInt();
+					Entity* pEntity = m_pGM->getEntity(root["tilesets"][i]["name"].asString());
 
-			//Entity* pEntity = m_pGM->getEntity(name);
-			//pEntity->setPosition(x, y);
-			//m_pGM->addEntity(pEntity);
-			//SpriteRenderer* pSpriteRenderer = new crea::SpriteRenderer();
-			//pEntity->addComponent(pSpriteRenderer);
-			//Texture* pTexture = pGM->getTexture(textureName);
-			//pSprite->setTexture(pTexture);
+					for (int j = 0; j < layer["objects"].size(); j++)
+					{
+						if (layer["objects"][j]["gid"].asInt() == entityGid)
+						{
+							crea::Vector2f entityPosition = crea::Vector2f(layer["objects"][j]["x"].asFloat(), layer["objects"][j]["y"].asFloat() - layer["objects"][j]["height"].asFloat());
+							pEntity->setPosition(entityPosition);
+							m_pGM->addEntity(pEntity);
+							break;
+						}
+					}
+
+
+					SpriteRenderer* pSpriteRenderer = new crea::SpriteRenderer();
+					pEntity->addComponent(pSpriteRenderer);
+					string textureName = root["tilesets"][i]["image"].asString();
+					size_t last = textureName.find_last_of('/');
+					textureName = textureName.substr(last + 1);
+					Texture* pTexture = m_pGM->getTexture(textureName);
+
+					Sprite* pSprite = new Sprite();
+					pSprite->setTexture(pTexture);
+					pSpriteRenderer->setSprite(pSprite);
+				}
+			}
 
 			// Properties
 			//pEntity->loadFromFileJSON("name.ent");
