@@ -294,6 +294,20 @@
          "spacing":0,
          "tilecount":1,
          "tileheight":72,
+         "tileproperties":
+            {
+             "0":
+                {
+                 "Entity":"Peon\/Peon.ent"
+                }
+            },
+         "tilepropertytypes":
+            {
+             "0":
+                {
+                 "Entity":"string"
+                }
+            },
          "tilewidth":72
         }],
  "tilewidth":32,
