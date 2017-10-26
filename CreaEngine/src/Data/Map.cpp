@@ -155,18 +155,7 @@ namespace crea
 						}
 					}
 
-
-					SpriteRenderer* pSpriteRenderer = new crea::SpriteRenderer();
-					pEntity->addComponent(pSpriteRenderer);
-					string textureName = root["tilesets"][i]["image"].asString();
-					size_t last = textureName.find_last_of('/');
-					textureName = textureName.substr(last + 1);
-					Texture* pTexture = m_pGM->getTexture(textureName);
-
-					Sprite* pSprite = new Sprite();
-					pSprite->setTexture(pTexture);
-					pSpriteRenderer->setSprite(pSprite);
-
+					// Load entity from file
 					if (!root["tilesets"][i]["tileproperties"].isNull())
 					{
 						Json::Value agentProperty = root["tilesets"][i]["tileproperties"]["0"];
@@ -179,6 +168,21 @@ namespace crea
 							cout << "Strength:" << pEntity->getComponent<Agent>()->getStrength() << endl;
 						}
 					}
+					// If no entity file found, sprite renderer is loaded directly
+					else
+					{
+						SpriteRenderer* pSpriteRenderer = new crea::SpriteRenderer();
+						pEntity->addComponent(pSpriteRenderer);
+						string textureName = root["tilesets"][i]["image"].asString();
+						size_t last = textureName.find_last_of('/');
+						textureName = textureName.substr(last + 1);
+						Texture* pTexture = m_pGM->getTexture(textureName);
+
+						Sprite* pSprite = new Sprite();
+						pSprite->setTexture(pTexture);
+						pSpriteRenderer->setSprite(pSprite);
+					}
+
 				}
 			}
 
